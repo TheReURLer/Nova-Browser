@@ -2,13 +2,7 @@
 <html>
 <head>
   <title>Nova Browser</title>
-  <style>
-    body { font-family:sans-serif; margin:0; background:#111827; color:#e5e7eb; }
-    #bar { background:#1f2937; padding:10px; display:flex; }
-    #url { flex:1; padding:5px; border:none; border-radius:4px; }
-    button { margin-left:5px; padding:5px 10px; border:none; border-radius:4px; background:#374151; color:#fff; }
-    iframe { width:100%; height:90vh; border:none; }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div id="bar">
@@ -16,9 +10,11 @@
     <button onclick="go()">Go</button>
     <button onclick="back()">Back</button>
     <button onclick="forward()">Forward</button>
+    <button onclick="toggleTheme()">Toggle Theme</button>
   </div>
   <iframe id="view" src="https://bing.com"></iframe>
 
+  <script src="theme.js"></script>
   <script>
     const view = document.getElementById("view");
     const urlBox = document.getElementById("url");
@@ -31,8 +27,12 @@
     function back() { history.back(); }
     function forward() { history.forward(); }
 
-    // Detect blocked pages (example: securly.com)
     view.addEventListener("load", () => {
       const currentURL = view.src;
       if (currentURL.includes("securly.com")) {
-        view.src = "system.html"; // redirect
+        view.src = "system.html";
+      }
+    });
+  </script>
+</body>
+</html>
