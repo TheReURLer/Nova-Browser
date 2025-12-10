@@ -1,0 +1,72 @@
+/* Base styling */
+body {
+  font-family: sans-serif;
+  margin: 0;
+  color: #e5e7eb;
+  transition: background 2s ease, color 2s ease;
+}
+
+/* Nebula background (animated gradient) */
+body {
+  background: linear-gradient(270deg, #1a1a2e, #16213e, #0f3460, #533483);
+  background-size: 800% 800%;
+  animation: nebulaShift 20s ease infinite;
+}
+
+@keyframes nebulaShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Top bar */
+#bar {
+  background: rgba(31, 41, 55, 0.8);
+  padding: 10px;
+  display: flex;
+  backdrop-filter: blur(6px);
+}
+
+#url {
+  flex: 1;
+  padding: 5px;
+  border: none;
+  border-radius: 4px;
+}
+
+button {
+  margin-left: 5px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  background: #374151;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #4b5563;
+}
+
+/* Iframe */
+iframe {
+  width: 100%;
+  height: 90vh;
+  border: none;
+}
+
+/* Light theme override */
+body.light {
+  background: linear-gradient(270deg, #fef9c3, #fde68a, #fcd34d, #f59e0b);
+  color: #111827;
+}
+
+body.light #bar {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+body.light button {
+  background: #f59e0b;
+  color: #111827;
+}
