@@ -1,0 +1,15 @@
+{
+  "name": "Cloud Browser",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "runArgs": [
+    "--shm-size=2g"
+  ],
+  "hostRequirements": {
+    "memory": "16gb",
+    "cpus": 4
+  ],
+  "forwardPorts": [6080],
+  "postStartCommand": "bash /workspaces/${localWorkspaceFolderBasename}/start.sh"
+}
