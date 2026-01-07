@@ -24,7 +24,7 @@ RUN wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | apt-key add 
 # Install Edge
 RUN apt update && apt install -y microsoft-edge-stable
 
-# Copy startup script (must be inside .devcontainer)
+# Copy startup script
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
 
