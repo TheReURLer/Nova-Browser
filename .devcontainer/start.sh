@@ -13,8 +13,8 @@ x11vnc -display :1 -nopw -forever -shared -noxdamage &
 
 sleep 1
 
-echo "Starting noVNC..."
-/usr/share/novnc/utils/novnc_proxy --vnc localhost:5900 --listen 6080 &
+echo "Starting noVNC via websockify..."
+websockify --web=/usr/share/novnc/ 6080 localhost:5900 &
 
 sleep 1
 
@@ -22,3 +22,4 @@ echo "Launching Microsoft Edge..."
 microsoft-edge-stable --no-sandbox --disable-dev-shm-usage --start-maximized &
 
 wait
+
